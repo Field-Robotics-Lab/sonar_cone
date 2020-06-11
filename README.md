@@ -7,4 +7,4 @@ To use: install under `uuv_ws/src`, run `catkin_make`, then type:
 
 View:
 
-[[example_cone.png]]
+![cone view](https://github.com/Field-Robotics-Lab/sonar_cone/blob/master/example_cone.png)

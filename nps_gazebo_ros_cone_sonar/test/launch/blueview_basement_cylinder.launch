@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find nps_gazebo_ros_cone_sonar)/test/worlds/blueview_basement_cylinder.world"/>
+  </include>
+
+<!-- standalone_nps_sonar_robot xacro -->
+  <param name="standalone_nps_sonar_robot"
+         command="$(find xacro)/xacro '$(find nps_gazebo_ros_cone_sonar)/test/urdf/standalone_nps_sonar_robot.xacro'"/>
+
+<!-- spawn standalone_nps_sonar_robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        respawn="false" output="screen"
+        args="-urdf -model nps_sonar_model -param standalone_nps_sonar_robot" />
+
+  <!-- RViz cloud view -->
+
+<!--
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find nps_gazebo_ros_cone_sonar)/test/rviz/standalone.rviz" />
+-->
+
+</launch>
+
